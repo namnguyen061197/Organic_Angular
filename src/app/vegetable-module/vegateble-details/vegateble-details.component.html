@@ -1,0 +1,197 @@
+<app-banner [listBread]="listBread"></app-banner>
+<main>
+  <div class="container">
+      <div class="info-prd-detail">
+          <div class="row">
+              <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12">
+                  <div class="list_img_prd">
+                      <div class="img_prd_main mb-4">
+                          <img src="../../../assets/imgHomePage/{{imgMainPrd}}">
+                      </div>
+                      <div class="box_img_prd_extra d-flex justify-content-center mt-5">
+                        <div class="img_prd_extra">
+                          <owl-carousel-o [options]="customOptions_imgExtra">
+                            <ng-template carouselSlide *ngFor="let imgPrdExtra of productGetByName?.imgPrd">
+                              <div class="img-prd" (click)="getImgPrdExtra(imgPrdExtra)">
+                                <img
+                                class="img-extra-detail"
+                                [ngClass]="{'active' : imgPrdExtra === imgMainPrd}"
+                                src="../../../assets/imgHomePage/{{imgPrdExtra}}"
+                                >
+                              </div>
+                            </ng-template>
+                          </owl-carousel-o>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12">
+                  <div class="content_prd_detail">
+                      <div class="info-prd">
+                          <h3 class="name-prd">{{productGetByName.namePrd}}</h3>
+                          <div class="evaluate">
+                              <i class="far fa-star active"></i>
+                              <i class="far fa-star active"></i>
+                              <i class="far fa-star active"></i>
+                              <i class="far fa-star"></i>
+                              <i class="far fa-star"></i>
+                          </div>
+                          <h2 class="price-prd">${{productGetByName.priceNow | number : '1.0-2'}} <span class="old-price"> ${{productGetByName.priceOld}}</span></h2>
+                          <h3 class="inventory-prd">Available: <span>In Stask</span></h3>
+                          <p class="description-prd">{{productGetByName.description}}</p>
+                      </div>
+                      <div class="prd-meta">
+                          <div class="add-to-cart d-flex mb-3">
+                              <div class="cart-plus-minus d-flex">
+                                  <div class="dec qtybutton" (click)="handleChangeQuanlity(-1)">
+                                    <i class="fas fa-minus"></i>
+                                  </div>
+                                  <input class="display-qlt me-2 ms-2"  value={{quanlity}} type="text" name="quantity" min="1" pattern="[0-9]*">
+                                  <div class="inc qtybutton" (click)="handleChangeQuanlity(+1)">
+                                    <i class="fas fa-plus"></i>
+                                  </div>
+                              </div>
+                              <button class="btn_add_to_cart">ADD TO CART</button>
+                              <div class="vote-love" data-bs-toggle="tooltip" title="Yeu Thich">
+                                  <i class="fas fa-heart"></i>
+                              </div>
+                              <div class="vote-love">
+                                  <i class="fas fa-equals"></i>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 ">
+                                  <h3 class="cate-name">SKU</h3>
+                                  <h3 class="cate-name">CATEGORY</h3>
+                                  <h3 class="cate-name">TAGS</h3>
+                                  <h3 class="cate-name">SHARE</h3>
+                              </div>
+                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                  <p class="value-cate">: 537mkc8500</p>
+                                  <p class="value-cate active">: Vegetables</p>
+                                  <div class="list-value-cate">
+                                      :<span class="value-cate"> Food</span>
+                                      <span class="value-cate">Organic Food</span>
+                                      <span class="value-cate">Garden</span>
+                                  </div>
+                                  <div class="list-icon-share">
+                                      <a>: <i class="fab fa-facebook-f"></i></a>
+                                      <a><i class="fab fa-twitter"></i></a>
+                                      <a><i class="fab fa-google-plus-g"></i></a>
+                                      <a><i class="fab fa-pinterest-p"></i></a>
+                                      <a><i class="fab fa-youtube"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="product-description-tab mt-5">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Description</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Review(s)</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="pannel">
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla similique alias blanditiis eveniet labore esse nisi itaque nostrum, perspiciatis explicabo.</p>
+              <p><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus doloremque nostrum a nulla, ratione aspernatur libero voluptatibus ab mollitia facilis nesciunt ad quidem architecto totam, dolor dolores sed ullam! Nemo quae ipsum sapiente libero consequatur unde, nam beatae inventore. Fuga? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti voluptas vero odit, ipsam excepturi beatae a accusantium! Neque magnam amet, vitae voluptatum quia cupiditate beatae repudiandae iure reiciendis ullam sequi laboriosam atque nihil esse deleniti sint. Sint ut dolore sit, blanditiis earum, tempore eligendi qui aspernatur reiciendis corrupti repellat laboriosam!</p>
+              <div class="benefit-prd">
+                  <div class="title-benefit-prd">
+                      <h3 class="title">Retis Lapen Casen is a rich source of Vitamin</h3>
+                      <img src="../../../assets/imgHomePage/imgbenfit.png" alt="">
+                  </div>
+                  <ul class="list-benefit-prd">
+                      <li>
+                          <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, provident.</p>
+                      </li>
+                      <li>
+                          <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic recusandae beatae </p>
+                      </li>
+                      <li>
+                          <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic recusandae beatae adipisicing   </p>
+                      </li>
+                      <li>
+                          <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                          <p>Lorem ipsum sit amet consectetur adipisicing elit. Hic recusandae beatae </p>
+                      </li>
+                      <li>
+                          <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                          <p>Lorem ipsum dolor sit amet consectetu elit. Hic recusandae beatae </p>
+                      </li>
+                      <li>
+                          <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                          <p>Lorem sit amet consectetur adipisicing elit. Hic recusandae beatae </p>
+                      </li>
+
+                  </ul>
+              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste aliquam, alias asperiores laboriosam harum dolores velit rerum exercitationem cumque totam!</p>
+          </div>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="pannel">
+              <div class="title">
+                  <h3>Review</h3>
+                  <h6>There are no reviews yet</h6>
+              </div>
+              <div class="review-form-inner">
+                  <h5>Write Your Own Review</h5>
+                  <form action="">
+                      <div>
+                          <label class="lable-form">Summary of Your Review <span class="active">*</span></label>
+                          <textarea class="form_control textarea-control" name="" id=""></textarea >
+                      </div>
+                      <div class="info-people d-flex justify-content-between">
+                          <div>
+                              <label class="lable-form">Name<span class="active">*</span></label>
+                              <input class="form_control" type="text" required>
+                          </div>
+                          <div>
+                              <label class="lable-form">Email <span class="active">*</span></label>
+                              <input class="form_control" type="email" required>
+                          </div>
+                      </div>
+                      <div class="rating">
+                        <label for="" class="lable-form">Rating</label>
+                        <div class="evaluate">
+                          <ng-container *ngFor="let star of listStar; let idx = index">
+                            <i *ngIf="!star; else fullStar" class="far fa-star" (click)="handleRate(idx)"></i>
+                            <ng-template #fullStar>
+                              <i class="fas fa-star"  (click)="handleRate(idx)" ></i>
+                            </ng-template>
+                          </ng-container>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-review" >Submit Review</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="related-products">
+          <div class="title-related-products">
+              <img class="icon-title" src="../../../assets/imgHomePage/iconnew.png" alt="">
+              <h3>Related Products</h3>
+          </div>
+          <div class="list-prd-arrivals">
+            <owl-carousel-o [options]="customOptionsNew_Arrivals">
+              <ng-template carouselSlide *ngFor="let prd of listPrd2">
+                <div class="px-2">
+                  <app-product-item [contentPrd]="prd"></app-product-item>
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+          </div>
+      </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>

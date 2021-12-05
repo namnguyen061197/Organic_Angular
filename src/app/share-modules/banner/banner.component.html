@@ -1,0 +1,22 @@
+<div class="banner" [style.background-image]="'url(' + bgImg + ')'">
+
+</div>
+<div class="container">
+  <div class="breadcrumb-area">
+    <ul class="breadcrumb-list d-flex">
+        <li class="breadcrumb-item" *ngFor="let bread of listBread; let idx = index">
+          <a *ngIf="(idx + 1) !== listBread?.length; else noActive"  (click)="navigateRoute(bread.slug)">
+            {{bread.name}}
+          </a>
+          <ng-template #noActive >
+            <a class="active">{{bread.name}}</a>
+          </ng-template>
+      </li>
+    </ul>
+      <h2 *ngFor="let bread of listBread; let idx = index" class="breadcrumb-home">
+        <ng-container  *ngIf="(idx + 1) === listBread?.length;">
+          {{bread.name}}
+        </ng-container>
+      </h2>
+  </div>
+</div>

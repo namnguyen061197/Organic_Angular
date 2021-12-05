@@ -1,0 +1,231 @@
+
+ul {
+  margin-bottom: 0px;
+  padding-left: 0!important;
+}
+
+
+body {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.wrapper {
+  width: 100%;
+  height: auto;
+}
+
+p {
+  margin-bottom: 0px;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+li {
+  list-style: none;
+}
+.wrapper{
+  font-family: 'Montserrat', sans-serif;
+}
+.container {
+  width: 80%;
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
+/* ==========================================================================================
+                       footer */
+.name-category i {
+  font-size: 14px;
+  margin-right: 8px;
+}
+.text-green {
+  color:#add253!important ;
+}
+.title-category-footer{
+  font-size: 18px;
+  font-weight: bold;
+}
+.name-category,
+.marketer-footer p {
+  font-size: 13px;
+  color:#ffffff ;
+}
+.name-category li {
+  margin-bottom: 13px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.name-category li:hover {
+  color: #629624
+}
+.img-instagram {
+  width: 55px;
+  height: 55px;
+  background-color:#88c442 ;
+  border: 2px solid #fff;
+  margin-bottom: 10px;
+}
+.img-instagram.right {
+  margin-left: -10px;
+}
+
+.logo-main-footer {
+  width: 135px;
+  height: 115px;
+  margin-top: -25px;
+  margin-bottom: 35px;
+}
+.title-category-footer {
+  margin-bottom: 25px;
+}
+.list-category-footer {
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
+.list-category-footer > div {
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+}
+.marketer-footer {
+  border-top: 1px dotted #9b9997;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.fa-copyright {
+  font-size: 10px;
+}
+.icon-google  {
+  width: 35px;
+  height: 35px;
+  background-color: #797c44;
+  border-radius: 50%;
+}
+.img-brand-footer img {
+  width: 55px;
+  height: 35px;
+  justify-content: right;
+  object-fit: cover;
+}
+.list-category-footer i {
+  display: block;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.iconConcact i {
+  color: #9b9997;
+}
+.icon-google i {
+  color: #fff;
+}
+.accordion {
+  display: none;
+}
+/*  ================================= phan respon header ==========================================*/
+
+ @media (max-width:1200px) {
+  .title-category-footer {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  .list-category-footer >div{
+      padding-left: 15px!important;
+  }
+  .img-instagram {
+      width: 40px;
+      height: 40px;
+      background-color: #88c442;
+      border: 2px solid #fff;
+      margin-bottom: 10 px ;
+  }
+  .logo-main-footer {
+      margin-top: -55px;
+  }
+  .img-brand-footer img {
+      width: 40px;
+      height: 30px;
+  }
+
+}
+
+@media  (max-width:992px) {
+  footer .container {
+      width: 90%!important;
+  }
+}
+@media  (max-width:767px) {
+  .list-category-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .list-category-footer >div{
+    padding-left: 0px!important;
+  }
+  .title-category-footer {
+    margin-bottom: 0px;
+  }
+  .col-cate-footer {
+    display: none;
+  }
+  .footer-concact {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-main-footer {
+    margin: 0 auto;
+    margin-bottom: 20px!important;
+  }
+  .marketer-footer {
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  .accordion {
+    display: block;
+  }
+  .accordion-item {
+    border-left: none;
+    border-right:none ;
+    border-top: none;
+    background-color: transparent;
+  }
+  .accordion-button {
+    background-color: transparent;
+    padding: 10px 0px 10px 0px;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    content: "";
+    width: 17px;
+    height: 3px;
+    position: absolute;
+    background-color:#88c442;
+    right: 0px;
+    top: 20px;
+  }
+
+  .accordion-button::after {
+    background-image: none;
+    content: "+";
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color:#88c442;
+    right: 0px;
+    top: -2px;
+  }
+  .img-brand-footer,
+  .marketer-footer :nth-child(2) {
+    justify-content: center!important;
+  }
+  .img-brand-footer > a,
+  .marketer-footer :nth-child(2) i {
+    margin:15px 10px;
+  }
+}
+
+
+
+
+
+

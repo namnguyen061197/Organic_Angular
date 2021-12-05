@@ -1,1 +1,191 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.wrapper {
+  font-family: 'Montserrat', sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+} */
+html, body {
+  max-width: 100%;
+  margin:0px;
+  padding: 0px;
+}
+.list-farmer .owl-nav.disabled {
+  display: block!important;
+}
+.new_arrivals .owl-nav,
+.banner .owl-nav,
+.list-farmer .owl-nav {
+  position: absolute!important;
+  top: 45%!important;
+  width: 100%;
+}
+.list-farmer .owl-nav {
+  top: 25% !important;
+}
+.new_arrivals .owl-theme .owl-nav [class*=owl-],
+.banner .owl-theme .owl-nav [class*=owl-] {
+  color: #FFF;
+  font-size: 14px;
+  background-size: cover;
+  width: 40px!important;
+  height: 40px!important;
+  border-radius: 50%!important;
+  background-color:transparent!important;
+  position: absolute!important;
+  opacity: 0;
+}
+
+.banner {
+  position: relative;
+}
+.banner .owl-theme .owl-nav .owl-next {
+  right: 20px;
+  background-image: url('assets/imgHomePage/next.png')!important;
+}
+.banner .owl-theme .owl-nav .owl-prev {
+  left: 20px;
+  background-image: url('assets/imgHomePage/prev.png')!important;
+}
+.banner .owl-theme .owl-nav i {
+  font-weight: lighter;
+  margin-top: 8px;
+}
+.banner:hover .owl-next {
+  opacity: 1!important;
+  animation: animateNext 1s;
+}
+.banner:hover .owl-prev {
+  opacity: 1!important;
+  animation: animatePrev 1s;
+}
+@keyframes animateNext {
+  from {right: -50px;opacity: 0;}
+  to {right: 20px;opacity: 1!important;}
+}
+@keyframes animatePrev {
+  from {left: -50px;opacity: 0;}
+  to {left: 20px;opacity: 1!important;}
+}
+
+.new_arrivals .owl-theme .owl-nav [class*=owl-],
+.box_img_prd_extra .owl-theme .owl-nav [class*=owl-],
+.list-farmer .owl-theme .owl-nav [class*=owl-] {
+  color: #376e0f!important;
+  font-size: 14px;
+  background-size: cover;
+  width: 30px!important;
+  height: 30px!important;
+  border-radius: 5px!important;
+  position: absolute!important;
+  background-color: rgba(136, 196, 66, 0.77)!important;
+  border: 1px solid #376e0f;
+}
+.new_arrivals .owl-theme .owl-nav i,
+.box_img_prd_extra .owl-theme .owl-nav i {
+  margin-bottom: 8px;
+  font-weight: lighter;
+}
+.new_arrivals  .owl-theme .owl-nav .owl-next,
+.box_img_prd_extra  .owl-theme .owl-nav .owl-next,
+.list-farmer .owl-theme .owl-nav .owl-next {
+  right: -40px;
+  opacity: 0;
+}
+.new_arrivals  .owl-theme .owl-nav .owl-prev,
+.box_img_prd_extra  .owl-theme .owl-nav .owl-prev,
+.list-farmer .owl-theme .owl-nav .owl-prev {
+  left: -40px;
+  opacity: 0;
+}
+.new_arrivals:hover .owl-next,
+.list-farmer:hover .owl-next {
+  opacity: 1!important;
+  animation: anNext 1s;
+}
+.new_arrivals:hover .owl-prev,
+.list-farmer:hover .owl-prev {
+  opacity: 1!important;
+  animation: anPrev 1s;
+}
+@keyframes anNext {
+  from {right: -70px;opacity: 0;}
+  to {right: -40px;opacity: 1!important;}
+}
+@keyframes anPrev {
+  from {left: -70px;opacity: 0;}
+  to {left: -40px;opacity: 1!important;}
+}
+
+.ng5-slider-bubble{
+  display: none!important;
+}
+.display-price-fillter {
+  font-size: 13px;
+}
+.ng5-slider-selection {
+  background: #87c442!important;
+}
+.ng5-slider-pointer {
+  background: #87c442!important;
+  width: 14px!important;
+  height: 14px!important;
+  top: -5px!important;
+}
+.ng5-slider .ng5-slider-pointer:after {
+display: none!important;
+}
+
+.related-products,
+.box_img_prd_extra,
+.list-farmer {
+  position: relative;
+}
+.list-prd-arrivals .owl-theme .owl-nav {
+  position: absolute;
+  top: -105px;
+  right: 0px;
+  background-color: transparent!important;
+}
+.list-prd-arrivals .owl-theme .owl-nav [class*=owl-] {
+  color: rgb(150, 150, 150);
+  margin:0px!important;
+  background: transparent!important;
+    cursor: pointer;
+}
+.box_img_prd_extra .owl-nav {
+  position: absolute!important;
+  top: 15%!important;
+  width: 100%;
+}
+
+.box_img_prd_extra .owl-theme .owl-nav [class*=owl-] {
+  color: #fff!important;
+  border-radius: 50%!important;
+  background-color:  #549843!important;
+  border:none!important;
+}
+.box_img_prd_extra:hover .owl-next {
+  opacity: 1!important;
+  animation: NextImgExtra 1s;
+}
+.box_img_prd_extra:hover .owl-prev {
+  opacity: 1!important;
+  animation: PrevImgExtra 1s;
+}
+@keyframes NextImgExtra {
+  from {right: -70px;opacity: 0;}
+  to {right: -40px;opacity: 1!important;}
+}
+@keyframes PrevImgExtra {
+  from {left: -70px;opacity: 0;}
+  to {left: -40px;opacity: 1!important;}
+}

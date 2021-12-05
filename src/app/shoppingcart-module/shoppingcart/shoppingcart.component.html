@@ -1,0 +1,146 @@
+<app-banner [listBread]="listBread" ></app-banner>
+<main>
+  <div class="container">
+    <div class="card">
+        <table class="table table-hover">
+            <thead class="list-title-col">
+                <tr class="title-column">
+                    <th>PRODUCT</th>
+                    <th>NAME & DESCRIPTION</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>TOTAL</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listItemCart" class="item-prd ">
+                <td>
+                    <div class="img-prd" (click)="navigateToDetail(item.namePrd)">
+                        <img src="../../../assets/imgHomePage/{{item.imgPrd[0]}}" alt="">
+                    </div>
+                </td>
+                <td class="name-prd" (click)="navigateToDetail(item.namePrd)">{{item.namePrd}}</td>
+                <td class="price-prd">${{item.priceNow}}</td>
+                <td class="quantity-prd"><input (change)="updateQuanlity()" type="number" aria-label="quantity" class="num" step="1" name="quantity" id="7" value="{{item.quanlity}}" [(ngModel)]="item.quanlity"  title="SL" size="4" pattern="[0-9]*"></td>
+                <td class="total-price">${{item.priceNow * item.quanlity}}</td>
+                <td class="close-prd"><i class="fas fa-times" (click)="deletePrd(item.id)"></i></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-responsive">
+        <table class="table table-hover">
+            <thead class="list-title-col">
+                <tr class="title-column">
+                    <th>PRODUCT</th>
+                    <th></th>
+                    <th>QUANTITY</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listItemCart" class="item-prd ">
+                <td>
+                    <div class="img-prd">
+                      <img src="../../../assets/imgHomePage/{{item.img}}" alt="">
+                    </div>
+                </td>
+                <td class="name-price-des-prd">
+                    <p class="name-prd">{{item.name}},{{item.unit}}</p>
+                    <p class="price">${{item.price}}</p>
+                    <p class="des">{{item.status}}</p>
+                </td>
+                <td class="total-price">$2.50</td>
+                <td class="close-prd"><i class="fas fa-times"></i></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="nav-table">
+        <button class="btn btn-shopping" (click)="goBackUrl()"><span>CONTINUE WITH SHOPPING</span><i class="fas fa-long-arrow-alt-right"></i> </button>
+        <div class="combo-btn">
+            <button class="btn clear-cart me-2" (click)="clearCart()" [disabled]="listItemCart.length === 0">
+              <i class="fas fa-times"></i>
+              <span>CLEAR CART</span>
+            </button>
+            <button class="btn update-cart ms-2" >
+              <i class="fas fa-sync-alt"></i>
+              <span >UPDATE CART</span>
+            </button>
+        </div>
+    </div>
+    <div class="coupon-code">
+        <h3>Coupon Code</h3>
+        <input class="input-code" [disabled]="listItemCart.length === 0" [(ngModel)]="couponCode" type="text" placeholder="">
+        <button class="btn btn-code" (click)="applyCouponCode()" > APPLY NOW</button>
+    </div>
+    <div class="form-cart py-5">
+        <div class="row">
+            <div class="col-xl-7 col-lg-7 col-md-7">
+                <div class="form-main">
+                    <div class="title">
+                        <h3>ESTIMATE SHIPPING AND TAX</h3>
+                    </div>
+                    <form class="input-form" action="">
+                        <p>Enter your destination to get a shipping estimate</p>
+                        <div class="input-info">
+                            <label for="product_name" class="form-label ">Country <span style="color: red;">*</span></label>
+                            <select required class="select-info form_control">
+                                <option value="" disabled selected>United States</option>
+                                <option value="" >Nam Hai</option>
+                            </select>
+                        </div>
+                        <div class="input-info">
+                            <label class="form-label">State/Province</label>
+                            <select required class="select-info form_control">
+                                <option value="" disabled selected>Please select region state or province</option>
+                                <option value="" >Van Nam</option>
+                            </select>
+                        </div>
+                        <div class="input-info">
+                            <label class="form-label">Zip/Postal Code</label>
+                            <input type="text" name="address"  placeholder="" class="form_control" id="">
+                        </div>
+                        <button type="submit" class="btn btn-quote">
+                            <i class="fas fa-file-alt"></i>
+                            <span>GET A QUOTE</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-5">
+                <div class="form-main">
+                    <div class="title">
+                        <h3>SHOPPING CART TOTAL</h3>
+                    </div>
+                    <form class="input-form form-total-price" action="">
+                        <!-- <ul class="list-name-price-prd">
+                            <li class="item d-flex justify-content-between">
+                                <p class="name-prd">hoaqua</p>
+                                <p class="total-price-prd">$129.00</p>
+                            </li>
+                        </ul> -->
+                        <div class="total-price-bill d-flex justify-content-between">
+                          <p>Subtotal</p>
+                          <p class="total-price">${{totalPricePrdInCart}}</p>
+                        </div>
+                        <div class="total-price-bill d-flex justify-content-between">
+                            <p>Grand Total</p>
+                            <p class="total-price">${{totalPricePrdInCart}}</p>
+                        </div>
+                        <button
+                          class="btn btn-checkout"
+                          [disabled]="listItemCart.length === 0"
+                        >
+                          <i class="fas fa-check"></i>
+                          <span>PROCEED TO CHECKOUT</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>

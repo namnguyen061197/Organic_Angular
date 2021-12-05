@@ -1,1 +1,143 @@
-<p>footer works!</p>
+<footer>
+  <div class="footer-main"style="background-color:#5a4a3b">
+          <div class="container">
+              <div class="row justify-content-around list-category-footer">
+                  <div class="footer-concact col-xl-3 col-lg-3 col-md-3">
+                      <img class="logo-main-footer" src="../../../assets/imgHomePage/logomainfooter.png" alt="">
+                      <ul class="text-green name-category">
+                          <li class="d-flex align-items-center">
+                              <i class="fas fa-map-marker-alt"></i>
+                              <p class="local-marker">Lorem ipsum dolor sit amet nustr consectetur adipisicing elit.</p>
+                          </li>
+                          <li class="d-flex align-items-center">
+                              <i class="fas fa-mobile-alt"></i>
+                              <p>(+84)9188282737</p>
+                          </li>
+                          <li class="d-flex align-items-center">
+                              <i class="far fa-envelope"></i>
+                              <p>BKAptech@gmail.com</p>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="col-cate-footer col-xl-2 col-lg-2 col-md-2">
+                      <h4 class="text-green title-category-footer">
+                         <p>INFORMATION</p>
+                      </h4>
+                      <ul class="name-category">
+                          <li>Site Map</li>
+                          <li>Search Terms</li>
+                          <li>Advanced Search</li>
+                          <li routerLink="about" >About Us</li>
+                          <li routerLink="about_us">Contact Us</li>
+                          <li>Suppliers</li>
+                      </ul>
+                  </div>
+                  <div class="col-cate-footer col-xl-2  col-lg-3 col-md-3">
+                      <h4 class="text-green title-category-footer">
+                          <p>STYLE ADVISOR</p>
+                      </h4>
+                      <ul class="name-category">
+                          <li routerLink="myacount">You Acount</li>
+                          <li>Infomation</li>
+                          <li>Adresses</li>
+                          <li>Discount</li>
+                          <li routerLink="wishlist">Orders History</li>
+                          <li>Additional Information</li>
+                      </ul>
+                  </div>
+                  <div class="col-cate-footer col-xl-2  col-lg-2 col-md-2">
+                      <h4 class="text-green title-category-footer">
+                          <p>QUICK LINKS</p>
+                      </h4>
+                      <ul class="name-category">
+                          <li routerLink="blog" >Blog</li>
+                          <li routerLink="faq">FAQs</li>
+                          <li>Payment</li>
+                          <li>Shipment</li>
+                          <li>Where is my order?</li>
+                          <li>Return policy</li>
+                      </ul>
+                  </div>
+                  <div class="col-cate-footer col-xl-2  col-lg-2 col-md-2">
+                      <h4 class="text-green title-category-footer">
+                         <p>INSTAGRAM</p>
+                      </h4>
+                      <div class="row list-img-insta">
+                          <div class="col-5">
+                              <div class="img-instagram">
+                              </div>
+                          </div>
+                          <div class="col-5">
+                              <div class="img-instagram right">
+
+                              </div>
+                          </div>
+                          <div class="col-5">
+                              <div class="img-instagram">
+
+                              </div>
+                          </div>
+                          <div class="col-5">
+                              <div class="img-instagram right">
+
+                              </div>
+                          </div>
+                          <div class="col-5">
+                              <div class="img-instagram">
+
+                              </div>
+                          </div>
+                          <div class="col-5">
+                              <div class="img-instagram right">
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <ng-container *ngFor="let cateFooter of listCateFooter">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="{{cateFooter.id}}">
+                          <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#panelsStayOpen_' + cateFooter.id" aria-expanded="false" [attr.aria-controls]="'panelsStayOpen_' + cateFooter.id">
+                            <h4 class="text-green title-category-footer">
+                              {{cateFooter.name}}
+                            </h4>
+                          </div>
+                        </h2>
+                        <div id="panelsStayOpen_{{cateFooter.id}}" class="accordion-collapse collapse" [attr.aria-labelledby]="cateFooter.id">
+                          <div class="accordion-body">
+                          <ul class="name-category">
+                              <li *ngFor="let item of cateFooter.child">{{item}}</li>
+                          </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+              </div>
+              <div class="row justify-content-between marketer-footer align-items-center">
+                  <div class="col-xl-4 col-lg-4  col-md-4">
+                      <p><i class="far fa-copyright"></i><span class="text-green">NOGNIC</span>2019 all right reserved</p>
+                      <p>website designed & <span class="text-green">by Nguyen Nam Hai.</span></p>
+                  </div>
+                  <div class="d-flex col-xl-3 col-lg-3  col-md-3 justify-content-around align-items-center">
+                          <a class="iconConcact"><i class="fab fa-facebook-f"></i></a>
+                          <a class="iconConcact"><i class="fab fa-twitter"></i></a>
+                          <div class="icon-google d-flex justify-content-center align-items-center">
+                              <a class="iconConcact"> <i class="fab fa-google-plus-g"></i></a>
+                          </div>
+                          <a class="iconConcact"><i class="fab fa-pinterest-p"></i></a>
+                          <a class="iconConcact"><i class="fab fa-youtube"></i></a>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 img-brand-footer d-flex justify-content-around">
+                      <a href=""><img src="../../../assets/imgHomePage/paypal.png" alt=""></a>
+                      <a href=""><img src="../../../assets/imgHomePage/visa.png" alt=""></a>
+                      <a href=""><img src="../../../assets/imgHomePage/exprese.png" alt=""></a>
+                      <a href=""><img src="../../../assets/imgHomePage/matercard.png" alt=""></a>
+                  </div>
+              </div>
+          </div>
+  </div>
+</footer>
+
+

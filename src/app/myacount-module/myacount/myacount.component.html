@@ -1,0 +1,37 @@
+<app-banner [listBread]="listBread" ></app-banner>
+<main>
+  <div class="container">
+    <div class="form-account py-5">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center">
+                <div class="form form-login">
+                    <h2 class="title-form">Login</h2>
+                    <form action="">
+                        <input class="form_control" type="text" placeholder="User name">
+                        <input class="form_control" type="password" placeholder="Password">
+                        <div class="check-box-form">
+                            <div><input class="input-check" type="checkbox" name="nam" value="nam"><span>Remember me</span></div>
+                            <div><input class="input-check" type="checkbox" name="nam" value="nu"> <span>Forgot you Password</span></div>
+                        </div>
+                        <button class="btn btn-login">LOGIN</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6  d-flex justify-content-center">
+                <div class="form form-Register">
+                    <h2 class="title-form">Register</h2>
+                    <form action="">
+                        <input class="form_control" type="text" placeholder="Your name *">
+                        <input class="form_control" type="email" placeholder="Your email *">
+                        <input class="form_control" type="password" placeholder="Password *">
+                        <input class="form_control" type="password" placeholder="Repeat Password *">
+                        <div class="radio"><input class="input-radio"  type="radio"> <span class="ms-3">Privacy Policy Agreement?</span></div>
+                        <button class="btn btn-register">REGISTER</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>

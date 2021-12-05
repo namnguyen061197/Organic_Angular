@@ -1,0 +1,16 @@
+<div class="popup" [ngStyle]="{'display': showPopup ? 'none': 'block'}" >
+  <div class="form-popup">
+      <form action="">
+          <div class="title">
+              <img src="../../../assets/imgHomePage/p.png" alt="">
+              <h2>NEWS LETTER</h2>
+          </div>
+          <p class="des-instruct">Sign up for our exclusive email list and be the first to hear of special<br>promotions, new arrivals, and great news.</p>
+          <input class="form_control" type="text" placeholder="Enter your email here...">
+          <div class="check-box-form"><input class="input-check" type="checkbox" name="nam" value="nam"><span>Don's show this popup again</span></div>
+      </form>
+  </div>
+</div>
+<div class="overlay" (click)="displayPopUp()" [ngStyle]="{'display': showPopup ? 'none': 'block'}">
+
+</div>

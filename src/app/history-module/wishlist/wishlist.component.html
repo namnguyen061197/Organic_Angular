@@ -1,0 +1,44 @@
+<app-banner [listBread]="listBread"></app-banner>
+<main>
+  <div class="container">
+      <div class="card my-5">
+          <table class="table table-hover">
+              <tbody>
+                  <tr *ngFor="let item of listItemCart" class="item-prd ">
+                      <td>
+                          <div class="img-prd">
+                              <img src="../../../assets/imgHomePage/{{item.img}}" alt="">
+                          </div>
+                      </td>
+                      <td class="name-prd">{{item.name}},{{item.unit}}</td>
+                      <td class="price-prd">${{item.price}}</td>
+                      <td>{{item.status}}</td>
+                      <td class="btn-add-cart"><a href="">ADD TO CART</a></td>
+                      <td class="close-prd"><i class="fas fa-times"></i></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="card-responsive">
+          <table class="table table-hover">
+              <tbody>
+                  <tr *ngFor="let item of listItemCart" class="item-prd ">
+                      <td>
+                          <div class="img-prd">
+                            <img src="../../../assets/imgHomePage/{{item.img}}" alt="">
+                          </div>
+                      </td>
+                      <td class="name-price-des-prd">
+                          <p class="name-prd">{{item.name}},{{item.unit}}</p>
+                          <p class="price">${{item.price}}</p>
+                          <p class="des">{{item.status}}</p>
+                      </td>
+                      <td class="btn-add-cart"><a href="">ADD TO CART</a></td>
+                      <td class="close-prd"><i class="fas fa-times"></i></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>

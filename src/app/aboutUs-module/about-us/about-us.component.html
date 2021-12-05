@@ -1,0 +1,128 @@
+<app-banner [listBread]="listBread"></app-banner>
+<main>
+  <div class="history-prd">
+      <div class="container">
+          <div class="row py-5">
+              <div class="col-xl-6 col-lg-6 col-md-12 d-flex justify-content-center">
+                  <div class="box-img">
+                      <div class="img-prd"><img src="../../../assets/imgHomePage/blog1.jpg" alt=""></div>
+                      <div class="bg-img"></div>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                  <div class="info-prd-history">
+                      <h2 class="title-style-color">WHO <span>WE ARE</span></h2>
+                      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione molestiae reiciendis voluptatum, tenetur cum quos perspiciatis aspernatur blanditiis doloribus, quam a unde numquam. Nostrum earum inventore nihil accusantium, tempore labore soluta quisquam cupiditate eius ex et animi voluptatem exercitationem quidem!</p>
+                      <p class="description"><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsa, debitis a excepturi dolore ab error laudantium provident alias illum </p>
+                      <p class="description-strong"><br><strong><i>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum veritatis ex reprehenderit nemo excepturi. Enim!</i></strong></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="award-achieved">
+      <div class="container-fluid">
+          <div class="bg-banner">
+              <div class="container">
+                  <div class="row">
+                      <div class="listAward col-xl-4 col-lg-4 col-md-12 px-0">
+                          <div *ngFor="let itemAward of listaward.slice(0,indexMidleListAward)" class="box-award d-flex">
+                              <h2 class="award-number">{{itemAward.numAward}}</h2>
+                              <div class="content-award">
+                                  <h3 class="title">{{itemAward.title}}</h3>
+                                  <p>{{itemAward.content}}</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-4 col-lg-4 col-md-12 ">
+                          <div class="qlt-year d-flex justify-content-center">
+                              <h2>OVER</h2>
+                              <h1>25</h1>
+                              <h2>YEAR</h2>
+                              <h3>IN THE FARMING<br> INDUSTRY</h3>
+                          </div>
+                      </div>
+                      <div class="listAward col-xl-4 col-lg-4 col-md-12 pe-0">
+                          <div *ngFor="let itemAward of listaward.slice(indexMidleListAward)" class="box-award d-flex">
+                              <h2 class="award-number">{{itemAward.numAward}}</h2>
+                              <div class="content-award">
+                                  <h3 class="title">{{itemAward.title}}</h3>
+                                  <p>{{itemAward.content}}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="reason-prd">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12 d-flex align-items-center">
+                  <div class="why-choose-us">
+                      <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
+                          <h2 class="title-style-color">WHY <span>CHOOSE US</span></h2>
+                      <p class="description-reason">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas soluta ad maxime, eos at consequatur iusto laudantium, dolorum, velit quas aut omnis error culpa quisquam ducimus totam blanditiis sunt consectetur.</p>
+                      <div class="gauge">
+                          <div class="expertese">
+                              <h3 class="title">EXPERTESE</h3>
+                              <div class="gauge-maximum">
+                                  <div class="gauge-expertese dot-gauge">
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="quality">
+                              <h3 class="title">QUALITY</h3>
+                              <div class="gauge-maximum">
+                                  <div class="gauge-quality dot-gauge">
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="responsible">
+                              <h3 class="title">RESPONSIBLE</h3>
+                              <div class="gauge-maximum">
+                                  <div class="gauge-responsible dot-gauge">
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="list-farmer">
+      <div class="container-fluid">
+          <div class="bg-banner">
+              <div class="title-list-framer d-flex align-items-center">
+                  <img class="icon-title" src="../../../assets/imgHomePage/iconnew.png" alt="">
+                  <h2 class="name-title">OUR FARMERS</h2>
+              </div>
+              <div class="listFarmer">
+                <owl-carousel-o [options]="customOptionsFarmer">
+                  <ng-template carouselSlide *ngFor="let item of listInForFarmer">
+                    <app-farmer-item [itemFarmer]="item"></app-farmer-item>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="brand-logo">
+    <div class="container px-0">
+      <owl-carousel-o [options]="customOptionsBrand">
+        <ng-template carouselSlide *ngFor="let itemBrand of listBrand">
+          <div class="item-brand-logo">
+            <img src="../../assets/imgHomePage/{{itemBrand.imgBrand}}" alt="">
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>
