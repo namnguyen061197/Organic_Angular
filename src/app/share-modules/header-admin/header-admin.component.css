@@ -1,0 +1,153 @@
+
+li {
+  list-style: none;
+  line-height: 45px;
+}
+a {
+  text-decoration: none;
+  color: #f8f9fa;
+  font-size: 14px;
+  font-weight: 50;
+}
+a i {
+  color: #8a919d;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.navbar-aside {
+  background-color: #2f3446;
+}
+.navbar-aside .aside-top, .main-header {
+  border-bottom: 1px solid #383e50;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  border-left: 1px solid #383e50;
+  justify-content: space-between;
+}
+.main-header {
+  padding: 0 35px;
+}
+.navbar-aside .aside-top .logo {
+  width:55%;
+  padding:10px 0px 5px 10px;
+}
+.btn-light {
+  width: 20px;
+  height: 20px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-right: 15px;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+}
+.btn-light:hover{
+  background-color: #383d4f;
+  cursor: pointer;
+}
+.btn-light i {
+  color: #a6aeb6;
+  font-size: 20px;
+}
+
+.submenu.hiden {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  background-color:#2f3446 ;
+  padding-left: 65px;
+  animation:ex1;
+  animation-duration: 1s;
+}
+
+@keyframes ex1 {
+  0%   {height: 0px;}
+  100% {height:89px;}
+}
+.submenu {
+  display: none;
+}
+.submenu a {
+  color: #cfd0d1;
+  list-style: disc!important;
+  position: relative;
+  transition: all 0.75s ease;
+}
+.submenu a:before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: #adb5bd;
+  left: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.submenu a:hover{
+  color: #fff;
+}
+.main-header {
+  width: 100%;
+  background-color:#2f3446;
+}
+.main-header .searchform .input-group,.nav-right .nav {
+  display: flex;
+}
+.searchform .input-group {
+  width: 350px;
+}
+.searchform .form_control {
+  padding: 7px 0 7px 20px!important;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+  border:none;
+  background-color: #1e2231;
+  font-size: 14px;
+  color: #fff;
+  width: 80%;
+}
+.searchform .btn-light {
+  background-color: #383e50;
+
+}
+.searchform .btn-light i {
+  font-size: 16px;
+  color: #f8f9fa;
+}
+.nav-right .nav i  {
+  color: #f8f9fa;
+}
+.main-header .nav-item > a {
+  color: #f8f9fa;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  padding: 0 10px;
+}
+.main-header .nav-item > a .badge {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  color: #ffffff;
+  height: 16px;
+  width: 16px;
+  font-weight: 500;
+  font-size: 10px;
+  text-align: center;
+  line-height: 17px;
+  display: block;
+  padding: 0;
+  background-color: #088178;
+}
+
+
+
+
+

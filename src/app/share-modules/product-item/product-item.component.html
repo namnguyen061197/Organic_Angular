@@ -2,12 +2,12 @@
     <div class="box-prd">
       <div class="img-prd">
           <img
-          src="../../../assets/imgHomePage/{{contentPrd.imgPrd[0]}}"
+          src="../../../assets/imgHomePage/{{contentPrd.img[0]}}"
           (click)="navigateToDetail(contentPrd.namePrd)">
       </div>
       <div class="info-prd d-flex align-items-center">
           <p class="name-prd" (click)="navigateToDetail(contentPrd.namePrd)" >{{contentPrd.namePrd}}</p>
-          <h2 class="price-prd">${{contentPrd.priceNow}}<span class="old-price">${{contentPrd.priceOld}}</span></h2>
+          <h2 class="price-prd">${{contentPrd.price * (100 - contentPrd.rate)/100}}<span class="old-price">${{contentPrd.price}}</span></h2>
           <div class="btn-buy-now">
               <img class="icon-prd" src="../../../assets/imgHomePage/cartnow.png" alt="">
               <button class="btn-buy" (click)="addPrdToCart(contentPrd)">BUY NOW</button>
@@ -20,13 +20,13 @@
     <div class="box-prd box-list-prd row d-flex justify-content-between">
       <div class="img-prd col-xl-3 col-lg-3 col-md-3 col-sm-3 px-0">
           <img
-          src="../../../assets/imgHomePage/{{contentPrd.imgPrd[0]}}"
+          src="../../../assets/imgHomePage/{{contentPrd.img[0]}}"
           (click)="navigateToDetail(contentPrd.namePrd)">
       </div>
       <div class="info-prd d-flex align-items-start justify-content-start col-xl-9 col-lg-9 col-md-9 col-sm-9 px-0">
           <p class="name-prd" (click)="navigateToDetail(contentPrd.namePrd)" >{{contentPrd.namePrd}}</p>
           <p class="des-prd">{{contentPrd.description}}</p>
-          <h2 class="price-prd">${{contentPrd.priceNow}}<span class="old-price">${{contentPrd.priceOld}}</span></h2>
+          <h2 class="price-prd">${{contentPrd.price * (100 - contentPrd.rate)/100}} <span class="old-price">${{contentPrd.price}}</span></h2>
           <div class="btn-buy-now">
               <img class="icon-prd" src="../../../assets/imgHomePage/cartnow.png" alt="">
               <button class="btn-buy" (click)="addPrdToCart(contentPrd)">BUY NOW</button>

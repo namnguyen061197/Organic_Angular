@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/client/services/cart.service';
+import { ProductService } from 'src/app/client/services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -178,25 +180,73 @@ export class HeaderComponent implements OnInit {
       ]
     },
   ]
-  public cart: Array<any> = [];
+  cart: Array<any> = [];
   navbarfixed: boolean = false;
   totalPricePrdBill?: number ;
-  
+  popupSearh : any;
+  listItemSearch : Array<any> = [];
+  treeCategory : Array<any> = [];
+  listProduct : Array<any> = [];
+
   constructor(
     private _router : Router,
     private toastr : ToastrService,
     private cartService : CartService,
+    private productService : ProductService
    ) {}
 
   ngOnInit(): void {
     this.cartService.updateCart.subscribe(data => {
       this.cart = data;
-      this.totalPricePrdBill = this.cartService.totalPricePrdBill();
+      this.totalPricePrdBill = this.cartService.subtotalPricePrdBill();
     })
+
+    this.productService.getAllCategory().subscribe(data => {
+      console.log(data);
+      this.treeMenu(data,0,this.treeCategory);
+      console.log(this.treeCategory);
+    })
+
+    this.productService.getListPrd().subscribe(data => {
+      this.listProduct = data;
+      console.log(this.listProduct);
+
+    })
+  }
+
+  treeMenu(menus : any, parentID : any, childs : Array<any>){
+    menus.forEach((x : any) => {
+      if(x.parent === parentID){
+        let menu = {
+          id : x.id,
+          name : x.name,
+          slug : x.slug,
+          parent : x.parent,
+          description : x.description,
+          childs : []
+        }
+        childs.push(menu);
+        this.treeMenu(menus,x.id,menu.childs);
+      }
+    });
   }
 
   navigateUrl(slug: any):void {
     this._router.navigate([slug])
+  }
+
+  sendValuePopupSearh():void {
+
+  }
+
+  changeValue(){
+    console.log(this.popupSearh);
+
+    this.productService.searchPrd(this.popupSearh).subscribe(data => {
+      this.listItemSearch = data;
+      console.log(data);
+
+    })
   }
 
   deletePrd(idPrd:any):void {
@@ -212,7 +262,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   scrollFunction() {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 1000) {
         this.navbarfixed = true;
     } else {
         this.navbarfixed = false;

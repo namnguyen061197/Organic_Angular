@@ -1,0 +1,138 @@
+
+.content-main {
+  padding: 20px;
+  background-color: #222736;
+}
+.content-main .content-header,
+.btn-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content-main .content-header {
+  margin-bottom: 30px;
+}
+.content-title {
+  font-size: 35px;
+  color: #f8f9fa;
+}
+.btn-add button  {
+  outline: none;
+  background-color: #383e50;
+  border: none;
+  padding: 10px 15px;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  color: #4f5d77;
+  transition: all 0.75s ease;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+}
+.btn-add :first-child:hover {
+  background-color: #2f3446;
+  color: #f8f9fa;
+}
+.btn-add :last-child {
+  background-color: #088178;
+  color: #f8f9fa;
+  margin-left:8px;
+  border: none;
+}
+.btn-add :last-child:hover{
+  background-color: #046963;
+}
+.col-lg-6 .card {
+  margin-bottom: 30px;
+}
+.col-lg-3 .card {
+  margin-bottom: 20px;
+}
+.card {
+  background-color: #2a3042;
+  border-radius: 10px;
+}
+.choose_img {
+  height: 310px;
+  font-size: 12px;
+}
+.card .card-body {
+  padding: 20px;
+}
+.card-header {
+  padding: 20px;
+  border-bottom: 1px solid #383e50;
+  font-size: 20px;
+  color: #f6f6f6;
+}
+.input-prd {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 36px;
+  line-height: 30px;
+}
+.form-label {
+  color: #f8f9fa;
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.input-prd .form-control {
+  padding: 10px 15px;
+  outline: none;
+  background-color: #1e2231;
+  color: #f8f9fa;
+  border-radius: 5px;
+  border:1px solid #383e50;
+  font-size: 12px;
+}
+.input-upload {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+
+}
+.input-upload img {
+  width: 60%;
+  margin: 0 auto;
+}
+.form-select {
+  width: 100%;
+  background-color:#1e2231 ;
+  padding: 10px 15px;
+  color: #f8f9fa;
+  border:1px solid #383e50;
+  appearance: none;
+  outline: none;
+  font-size: 12px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.messError {
+  color: red;
+  font-size: 13px;
+}
+.imgMain {
+  width: 200px;
+  height: 160px;
+  margin: 0 auto;
+}
+.imgMain img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.listImgExtra img {
+  width: 92%;
+  margin: 5px ;
+  object-fit: cover;
+  height: 75px;
+}
+.active_img_extra {
+  border: 2px solid red;
+}

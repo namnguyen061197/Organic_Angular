@@ -22,7 +22,6 @@ export class PaginationComponent implements OnInit,OnChanges {
     this.totalPage  = Math.ceil(this.numItem / this.limitNumber);
     this.currentPage = 1;
     this.listPage = this.pagination(this.currentPage, this.totalPage);
-
   }
 
   ngOnInit(): void {

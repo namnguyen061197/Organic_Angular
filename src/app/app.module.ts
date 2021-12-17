@@ -7,17 +7,26 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FooterComponent } from './share-modules/footer/footer.component';
 import { HeaderComponent } from './share-modules/header/header.component';
 import { ShareModule } from './share-modules/share.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { TypeofPipe } from './pipes/typeof.pipe';
+import { TypeofPipe } from './client/pipes/typeof.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientComponent } from './client/client.component';
+import { AdminComponent } from './admin/admin.component';
+import { MenuAdminComponent } from './share-modules/menu-admin/menu-admin.component';
+import { HeaderAdminComponent } from './share-modules/header-admin/header-admin.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    ClientComponent,
+    AdminComponent,
+    MenuAdminComponent,
+    HeaderAdminComponent,
     TypeofPipe,
   ],
   imports: [
@@ -33,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

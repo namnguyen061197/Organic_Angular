@@ -4,6 +4,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { BannerComponent } from './banner/banner.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+import { TableAdminComponent } from './table-admin/table-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     BannerComponent,
     ProductItemComponent,
     ScrollTopComponent,
-
+    TableAdminComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,10 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     PaginationComponent,
     BannerComponent,
     ProductItemComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    TableAdminComponent,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ShareModule { }

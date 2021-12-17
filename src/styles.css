@@ -177,6 +177,21 @@ display: none!important;
   opacity: 1!important;
   animation: NextImgExtra 1s;
 }
+.input-upload .owl-theme .owl-nav [class*=owl-] {
+  background-color: transparent!important;
+  position: absolute;
+  top: 28%;
+
+}
+.input-upload .owl-next {
+  position: absolute;
+  right: -25px;
+}
+.input-upload .owl-prev {
+  position: absolute;
+  left: -25px;
+
+}
 .box_img_prd_extra:hover .owl-prev {
   opacity: 1!important;
   animation: PrevImgExtra 1s;
@@ -189,3 +204,5 @@ display: none!important;
   from {left: -70px;opacity: 0;}
   to {left: -40px;opacity: 1!important;}
 }
+
+/* public handleChangeListPrd = new BehaviorSubject([]); */

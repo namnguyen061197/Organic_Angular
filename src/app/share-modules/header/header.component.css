@@ -346,31 +346,30 @@ li {
 .img-menu_dropdown {
   background-color: #5a4a3b;
   width: 100%;
-  height: 410px;
+  height: 220px;
+  background-image: url('../../../assets/imgHomePage/bg-menu.png');
+  background-size: cover;
 }
+
 .bg-menu_dropdown {
   background-color: #629624;
   width: 100%;
-  height: 410px;
-  padding: 40px;
+  height: 220px;
+  padding: 30px;
 }
-.menu_dropdown .title-col {
+.menu_dropdown_fruit .title-col {
   color: #ffffff;
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 0px!important;
 }
 .item-name-prd {
   font-size: 14px;
   color: #caeaa4;
-  line-height: 25px;
+  line-height: 30px;
   padding-bottom: 0px!important;
 }
 
-.item-fruits:hover .menu_dropdown {
-  opacity: 1;
-  animation: AnimationDropMenu 0.5s;
-  visibility: visible;
-}
 .box-item-menu {
   position: relative;
 }
@@ -378,7 +377,8 @@ li {
   position: absolute;
   right: 40px;
 }
-.box-item-menu:hover .menu-dropdown-small {
+.box-item-menu:hover .menu-dropdown-small,
+.box-item-menu:hover .menu_dropdown {
   opacity: 1;
   animation: AnimationDropMenu 0.5s;
   visibility: visible;
@@ -387,15 +387,14 @@ li {
   from {top: 90px;opacity: 0;}
   to {top: 64px;opacity: 1;}
 }
-/* @keyframes AnimationCloseDropMenu {
-  from {top: 64px;opacity: 1;}
-  to {top: 90;opacity: 0;}
-} */
 .list-tag-dropdown_small {
-  width: 170px;
+  width: 150px;
   background-color: #629624;
   color: #fff;
   padding-top: 20px;
+}
+.list-tag-dropdown_small li {
+  text-align: left;
 }
 .list-tag-dropdown_small li:hover {
   color: #5a4a3b;
@@ -596,6 +595,11 @@ li {
 }
 
 /* sticky bar */
+.sticky_bar .menu_dropdown_fruit {
+  left: -395px!important;
+  position: absolute;
+  z-index: 5;
+}
 .sticky_bar .list-menu-item {
   position: static;
 }
@@ -606,11 +610,11 @@ li {
   top: 78px;
 }
 .sticky_bar .box-item-menu:hover .menu-dropdown-small,
-.sticky_bar .item-fruits:hover .menu_dropdown {
+.sticky_bar .item-fruits:hover .menu_dropdown_fruit {
   animation: AnStickyBar 0.5s!important;
 }
 @keyframes AnStickyBar {
-  from {top: 90px;opacity: 0;}
+  from {top: 95px;opacity: 0;}
   to {top: 78px;opacity: 1;}
 }
 .sticky_bar .tool-header {
@@ -915,5 +919,13 @@ html {
 ::-webkit-scrollbar-thumb {
   background:grey ;
   border-radius: 10px;
+}
+
+.menu_dropdown_fruit {
+  position: absolute;
+  z-index: 5;
+  left: -458px!important;
+  width: 987px!important;
+  top: 64px;
 }
 

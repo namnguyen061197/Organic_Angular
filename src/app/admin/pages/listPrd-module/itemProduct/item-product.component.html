@@ -1,0 +1,38 @@
+<div class="row align-items-center item-prd pb-3 pt-3">
+  <div class="col-md-1 col-check flex-grow-0 pe-0">
+      <div class="form-check ms-2">
+        <input class="form-check-input" type="checkbox" value="">
+      </div>
+  </div>
+  <div class="col-md-4 flex-grow-1 col-name ps-0">
+    <div class="row">
+        <div class="col-md-4 pe-0">
+          <div class="img-prd">
+            <img src="../../../../../assets/imgHomePage/{{product.img[0]}}" alt="Item">
+          </div>
+        </div>
+        <div class="col-md-8 px-0 align-items-center d-flex">
+          <h4 class="name-prd mb-0">{{product.namePrd}}</h4>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-2 col-price">
+     <span>${{product.price}}</span>
+  </div>
+  <div class="col-md-1 col-status">
+    <span class="badge rounded-pill alert-success">{{product.status}}</span>
+  </div>
+  <div class="col-md-2 col-date">
+    <span>02.11.2021</span>
+  </div>
+  <div class="col-md-2 col-action text-end">
+    <button type="button" (click)="navigateEditPrd(product.id)" class="btn_creat_prd btn_card">
+      <i class="fas fa-pencil-alt"></i>
+      <span>Edit</span>
+    </button>
+    <button type="button" class="btn_light btn_card" (click)="handleDeletePrd(product.id)" >
+      <i class="fas fa-trash-alt"></i>
+      <span>Delete</span>
+    </button>
+  </div>
+</div>

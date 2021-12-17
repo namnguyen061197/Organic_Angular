@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CartService } from 'src/app/services/cart.service';
-import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/client/services/cart.service';
+import { ProductService } from 'src/app/client/services/product.service';
 
 @Component({
   selector: 'app-product-item',
@@ -21,7 +21,7 @@ export class ProductItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   navigateToDetail(slug : string){
@@ -31,7 +31,7 @@ export class ProductItemComponent implements OnInit {
   addPrdToCart(prd:any):void {
     this.toastr.success( `Thêm sản phẩm thành công !`);
     setTimeout(() => {
-      this.cartService.addPrdToCart(prd);
+      this.cartService.addPrdToCart(prd,1);
     }, 1000);
   }
 
