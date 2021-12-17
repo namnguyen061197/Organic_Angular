@@ -1,0 +1,83 @@
+<main class="main-wrap">
+  <div class="content-main">
+    <div class="content-header">
+      <div>
+        <h2 class="content-title card-title">Categories </h2>
+        <p>Add, edit or delete a category</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <form action="" [formGroup]="addCategoryForm" (ngSubmit)="onSubmit(addCategoryForm)">
+              <div class="mb-3">
+                <label  class="form-label">
+                  Name
+                  <span  style="color:red">*</span>
+                  <ng-container *ngIf="addCategoryForm.get('name')?.touched" >
+                    <span class="messerror" *ngIf="addCategoryForm.get('name')?.errors?.required"> ( không được bỏ trống ) </span>
+                    <span class="messerror" *ngIf="addCategoryForm.get('name')?.errors?.FiledDuplicated">(tên đã tồn tại)</span>
+                  </ng-container>
+                </label>
+                <input formControlName="name" type="text" placeholder="Type here" class="form-control" id="product_name" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">
+                  ID
+                  <span  style="color:red">*</span>
+                  <ng-container *ngIf="addCategoryForm.get('id')?.touched" >
+                    <span class="messerror" *ngIf="addCategoryForm.get('id')?.errors?.required"> ( không được bỏ trống ) </span>
+                    <span class="messerror" *ngIf="addCategoryForm.get('id')?.errors?.FiledDuplicated">(id đã tồn tại)</span>
+                  </ng-container>
+                </label>
+                <input formControlName="id" [readonly]="checkBtnEditDisplay"  type="text" placeholder="Type here" class="form-control" id="product_id" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">
+                  slug
+                  <span  style="color:red">*</span>
+                  <ng-container *ngIf="addCategoryForm.get('slug')?.touched" >
+                    <span class="messerror" *ngIf="addCategoryForm.get('slug')?.errors?.required"> ( không được bỏ trống ) </span>
+                    <span class="messerror" *ngIf="addCategoryForm.get('slug')?.errors?.FiledDuplicated">(slug đã tồn tại)</span>
+                  </ng-container>
+                </label>
+                <input formControlName="slug" type="text" placeholder="Type here" class="form-control" id="product_id" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Parent</label>
+                <input formControlName="parent"   type="number" placeholder="Type here" class="form-control" id="product_id" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea formControlName="description"  name="cateDes" placeholder="Type here" class="form-control"></textarea>
+              </div>
+              <div class="d-grid">
+                <button
+                  *ngIf="checkBtnEditDisplay;else btnCreateCategory"
+                  type="submit"
+                  class="btn-create"
+                  [disabled]="addCategoryForm.invalid"
+                >
+                  Save category
+                </button>
+                <ng-template #btnCreateCategory>
+                  <button type="submit" class="btn-create" [disabled]="addCategoryForm.invalid" >Create category</button>
+                </ng-template>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-9">
+           <app-table-admin
+            [listKey]="listCategoryFiled"
+            [listValue]="listCategory"
+            [base_api]="apiCategory"
+            (itemRow)="handleEditCategory($event)"
+            >
+            </app-table-admin>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

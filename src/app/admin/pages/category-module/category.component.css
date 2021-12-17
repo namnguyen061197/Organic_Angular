@@ -1,0 +1,77 @@
+.content-main{
+  background-color:#222736;
+  padding: 25px;
+}
+.content-main .content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f8f9fa;
+  margin-bottom: 17px;
+}
+.content-header .content-title {
+  line-height: 50px;
+  font-size: 35px;
+}
+.card-header {
+  border-bottom:0.2px solid #3e424f;
+}
+.content-header p {
+  font-size: 13px;
+}
+.card {
+  background-color: #2a3042;
+  border-radius: 10px;
+}
+.card .card-body {
+  padding: 8px 16px;
+}
+
+
+.form-select:focus,
+.form-control:focus{
+  border: 1px solid #383e50!important;
+  box-shadow:none!important;
+}
+.form-label {
+  color: #f8f9fa;
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.form-control {
+  padding: 10px 15px;
+  outline: none;
+  background-color: #1e2231;
+  color: #f8f9fa;
+  border-radius: 5px;
+  border:1px solid #383e50;
+  font-size: 12px;
+}
+.form-select {
+  width: 100%;
+  background-color:#1e2231 ;
+  padding: 10px 15px;
+  color: #f8f9fa;
+  border:1px solid #383e50;
+  appearance: none;
+  outline: none;
+  font-size: 12px;
+}
+.btn-create {
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  border-radius:3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color:#088178 ;
+  padding: 10px;
+}
+.btn-create:hover {
+  background-color: #046963;
+}
+.messerror {
+  color :red;
+  font-size: 12px;
+}

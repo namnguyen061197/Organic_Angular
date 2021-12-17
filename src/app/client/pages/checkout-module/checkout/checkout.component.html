@@ -1,0 +1,138 @@
+<app-banner [listBread]="listBread"></app-banner>
+<main>
+  <div class="container">
+    <div class="login-account px-5 mt-5">
+        <h2 class="title-section">01 / Checkout Method</h2>
+        <p class="info-condition">if you shopped with us before, please enter your details in the boxes. If you are a new customer. Please proceeed to the Billing & Shipping Section.</p>
+        <form class="form-login pb-4" action="" [formGroup]="loginForm">
+            <div class="row py-3">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <input type="text" class="form_control" formControlName="useroremail" placeholder="User name or Email">
+                    <ng-container *ngIf="loginForm.get('useroremail').touched" >
+                      <span class="messerror" *ngIf="loginForm.get('useroremail')?.errors?.required" >không được bỏ trống</span>
+                    </ng-container>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <input type="password" class="form_control" formControlName="password"placeholder="Password">
+                    <ng-container *ngIf="loginForm.get('password').touched" >
+                      <span class="messerror" *ngIf="loginForm.get('password')?.errors?.required" >không được bỏ trống</span>
+                      <span class="messerror" *ngIf="loginForm.get('password')?.errors?.pattern" >6-32 ký tự ,có ký tự số, ký tự đặc biệt</span>
+                    </ng-container>
+                </div>
+            </div>
+            <button class="btn btn-login" type="submit" [disabled]="loginForm.invalid">LOG IN</button>
+            <a><p class="question">Last your passWord?</p></a>
+        </form>
+    </div>
+    <form class="form-receiver" action=""[formGroup]="receiverForm" >
+      <div class="bill_shipping-detail px-5 py-3">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6">
+                  <h2 class="title-section">02 / Billing & Shipping details</h2>
+                  <div class="combo-form_control">
+                      <input type="text" class="form_control" formControlNam="firstname" placeholder="First Name">
+                      <div class="validateForm">
+                        <span class="messerr" *ngIf="receiverForm.get('lastname')?.touched && receiverForm.get('lastname')?.errors?.required ">không được bỏ trống</span>
+                        <input type="text" class="form_control" formControlName="lastname" placeholder="Last Name">
+                      </div>
+                  </div>
+                  <input type="text" class="form_control" placeholder="Company (optinal)">
+                  <div class="combo-form_control">
+                    <div class="validateForm">
+                      <span class="messerr" *ngIf="receiverForm.get('address')?.touched && receiverForm.get('address')?.errors?.required ">không được bỏ trống</span>
+                      <input type="text" class="form_control" formControlName="address" placeholder="Address">
+                    </div>
+                      <input type="text" class="form_control" formControlName="apt" placeholder="Apt,suite,etc (optinal)">
+                    </div>
+                  <div class="combo-form_control">
+                      <select required class="select-info form_control">
+                          <option value="" disabled selected>City</option>
+                      </select>
+                      <select required class="select-info form_control">
+                          <option value="" disabled selected>State</option>
+                      </select>
+                  </div>
+                  <input type="text" class="form_control" placeholder="Postcode /ZIP">
+                  <div class="combo-form_control">
+                    <div class="validateForm">
+                      <span class="messerr" *ngIf="receiverForm.get('phone')?.touched && receiverForm.get('phone')?.errors?.required ">không được bỏ trống</span>
+                      <span class="messerr" *ngIf="receiverForm.get('phone')?.touched && receiverForm.get('phone')?.errors?.pattern ">nhập chưa đúng định dạng</span>
+                      <input type="text" class="form_control" formControlName="phone" placeholder="Phone">
+                    </div>
+                    <div class="validateForm">
+                      <span class="messerr" *ngIf="receiverForm.get('email')?.touched && receiverForm.get('email')?.errors?.required ">không được bỏ trống</span>
+                      <span class="messerr" *ngIf="receiverForm.get('email')?.touched && receiverForm.get('email')?.errors?.pattern ">nhập chưa đúng định dạng </span>
+                      <input type="text" class="form_control" formControlName="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="box-check"><input class="input-check" formControlName="saveInfo" type="checkbox" name="nam" value="nam"><span>Save this infomation for next time</span></div>
+                  <textarea class="form-text-comment form_control" formControlName="note" name="" id="" cols="30" rows="6" placeholder="Order note"></textarea>
+                  <div  class="box-check"><input class="input-check" formControlName="aDifferentAddress" type="checkbox" name="nam" value="nam"><span>a different address?</span></div>
+              </div>
+              <div class="col-xl-6 col-lg-6">
+                  <h2 class="title-section">Your Order</h2>
+                  <div class="total-detail-bill">
+                  <div class="title-column-your-order">
+                      <h4>PRODUCT</h4>
+                      <h4>TOTAL</h4>
+                  </div>
+                  <ul class="list-prd-price-name">
+                      <li *ngFor="let itemCart of listCartItem" class="prd-price-name">
+                          <p class="name-prd">{{itemCart.namePrd}} <span class="qlt"> x {{itemCart.quanlity}}</span></p>
+                          <p class="price-prd"> {{itemCart.price * itemCart.quanlity}}</p>
+                      </li>
+                  </ul>
+                  <div class="sub_total">
+                      <h4>SUB TOTAL</h4>
+                      <p class="sub-total-price">{{subtotalPricePrdInCart}}</p>
+                  </div>
+                  <div class="shipping">
+                    <h4>COUPON CODE </h4>
+                    <p class="shipping-price">{{priceCouponCode}}</p>
+                  </div>
+                  <div class="shipping">
+                      <h4>SHIPPING</h4>
+                      <p class="shipping-price">Flat rate: 0.00</p>
+                  </div>
+                  <div class="total-price-bill">
+                      <h4>TOTAL</h4>
+                      <p class="total-price">${{totalPricePrdInCart}}</p>
+                  </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      <div class="payment-info px-5 my-3">
+          <h2 class="title-section">03 / Payment Infomation</h2>
+          <div class="list-card-pay d-flex align-items-center">
+             <p class="title-Creadit-card">Credit card (PayPal) </p>
+              <img src="../../../assets/imgHomePage/paypal.jpg" alt="">
+          </div>
+          <p>Pay with your credit card via PayPal Website payments Pro.</p>
+          <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="validateForm">
+                  <span class="messerr" *ngIf="receiverForm.get('cardnumber')?.touched && receiverForm.get('cardnumber')?.errors?.required ">không được bỏ trống</span>
+                  <input type="text" class="form_control" formControlName="cardnumber"placeholder="Card Number">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="validateForm">
+                  <span class="messerr" *ngIf="receiverForm.get('expiry')?.touched && receiverForm.get('expiry')?.errors?.required ">không được bỏ trống</span>
+                  <input type="text" class="form_control" formControlName="expiry" placeholder="Expiry(MM/YY)">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="validateForm">
+                  <span class="messerr" *ngIf="receiverForm.get('cardcode')?.touched && receiverForm.get('cardcode')?.errors?.required ">không được bỏ trống</span>
+                  <input type="text" class="form_control" formControlName="cardcode" placeholder="Card Code">
+                </div>
+              </div>
+          </div>
+          <button class="btn btn-place_order" type="submit" [disabled]="receiverForm.invalid">PLACE ORDER</button>
+      </div>
+    </form>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>

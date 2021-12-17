@@ -1,0 +1,63 @@
+.item-prd {
+  border-bottom:0.2px solid #3e424f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.item-prd:hover {
+  background-color: #2e3750;
+}
+.form-check-input:focus {
+  border: 1px solid #383e50!important;
+  box-shadow:none!important;
+}
+.form-check-input {
+  background-color:  #383e50;
+  border: 1px solid #787b7e;
+}
+.col-date {
+  text-align: right;
+}
+.col-price {
+  text-align: center;
+}
+.name-prd,
+.col-price,
+.col-date {
+  color: #fff;
+  font-size: 14px;
+}
+.img-prd img {
+  width: 75%;
+  height: 65px;
+  object-fit: cover;
+}
+
+.btn_card{
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  border-radius:3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn_card i {
+  margin-right: 3px;
+  font-size: 11px;
+}
+.btn_light {
+  background-color: #383e50;
+  border: 1px solid #383e50;
+  padding: 5px 10px ;
+}
+.btn_light:hover {
+  border: 1px solid #464a58;
+  background-color: #2f3446;
+}
+.btn_creat_prd{
+  background-color:#088178 ;
+  padding: 5px 10px;
+}
+.btn_creat_prd:hover {
+  background-color: #046963;
+}

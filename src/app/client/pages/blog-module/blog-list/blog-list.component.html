@@ -1,0 +1,39 @@
+<app-banner [listBread]="listBread"></app-banner>
+<main>
+  <div class="container">
+      <div class="row py-5">
+          <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12">
+              <div class="action-btn-display active" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">
+                <i class="fa fa-align-left"></i>
+              </div>
+              <div class="list-box-blogs">
+                  <div class="row">
+                      <div *ngFor="let blogItem of listBlog.slice(idxFisrt,idxLast)" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                          <app-blog-item [blogItem]="blogItem" ></app-blog-item>
+                      </div>
+                  </div>
+              </div>
+              <app-pagination
+                [numItem]="listBlog.length"
+                [limitNumber]="limitBlogOnPage"
+                (selectPage)="handleSelectPage($event)"
+              >
+              </app-pagination>
+          </div>
+          <div class="col-cate-right col-xl-3 col-lg-3 ">
+            <app-col-right-blog></app-col-right-blog>
+          </div>
+      </div>
+  </div>
+ <!-- col-right-respon -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+    <div class="offcanvas-header d-flex justify-content-end">
+      <div _ngcontent-eul-c48="" type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn-close text-reset"></div>
+    </div>
+    <div class="offcanvas-body">
+      <app-col-right-blog></app-col-right-blog>
+    </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>
+

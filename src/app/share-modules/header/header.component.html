@@ -1,1 +1,389 @@
-<p>hai nam</p>
+
+<header>
+  <div class="sticky_bar py-2" (scroll)="scrollFunction()"  [ngClass]="navbarfixed?'blockfixed':'hiden'">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-xl-2 col-lg-2 d-flex justify-content-start">
+          <div class="logo-main">
+            <img src="../../../assets/imgHomePage/logo.png" alt="">
+          </div>
+        </div>
+        <div class="col-xl-8 col-lg-8 menu d-flex align-items-center">
+          <ul class="list-menu-item equidistant">
+            <li class="box-item-menu" *ngFor="let item of treeCategory">
+              <img class="img-menu-item active" src="../../../assets/imgHomePage/leaves.png" alt="">
+              <p class="item-menu" routerLink="{{item.slug}}" >{{item?.name}}</p>
+              <div *ngIf="item.name !== 'Fruit';else itemFruits" class="menu_dropdown menu-dropdown-small">
+                  <ul *ngIf="item.childs.length > 0" class="list-tag-dropdown_small">
+                    <li
+                      *ngFor="let itemChild of item.childs"
+                      routerLink="{{itemChild.slug}}"
+                    >
+                      {{itemChild?.name}}
+                    </li>
+                  </ul>
+              </div>
+              <ng-template #itemFruits>
+                  <div class="menu_dropdown_fruit menu_dropdown">
+                      <div class="row">
+                          <div class="col-xl-8 pe-0">
+                              <div class="bg-menu_dropdown">
+                                  <div class="row">
+                                      <div class="col-xl-3 col-lg-3 mb-3" *ngFor="let itemChild of item.childs">
+                                          <h3 class="title-col">{{itemChild.name}}</h3>
+                                          <ul class="list-name-prd list-tag-dropdown_small">
+                                            <ng-container *ngFor="let prd of listProduct" >
+                                              <li
+                                                *ngIf="prd.category == itemChild.id"
+                                                class="item-name-prd px-0"
+                                                (click)="navigateToDetail(prd.namePrd)"
+                                              >
+                                                {{prd.namePrd}}
+                                              </li>
+                                            </ng-container>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-xl-4 ps-0">
+                              <div class="img-menu_dropdown">
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </ng-template>
+          </li>
+        </ul>
+        </div>
+        <div class="col-xl-2 col-lg-2 d-flex justify-content-end align-items-center">
+          <div class="tool-search tool-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="tool-favorite tool-header">
+            <i class="far fa-heart"></i>
+          </div>
+          <div class="tool-cart tool-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="quatityPrd">{{cart?.length}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav">
+      <div class="container-fluid">
+          <div class="row justify-content-between">
+              <div class="col-xl-5 col-lg-6 col-md-3 ">
+                  <div class="nav-left equidistant">
+                      <a> <i class="fab fa-facebook-f"></i></a>
+                      <div class="box-icon equidistant">
+                      <a><i class="fab fa-twitter"></i></a>
+                      </div>
+                      <a><i class="fab fa-google-plus-g"></i></a>
+                      <a><i class="fab fa-pinterest-p"></i></a>
+                      <a><i class="fab fa-youtube"></i></a>
+                      <div class="equidistant text-nav"><p>Phone: </p><a class="concat-nav" href="#">(+84)012435678</a></div>
+                      <div class="equidistant text-nav"><p>Email: </p><a class="concat-nav"href="#">BkAptechgmail.com</a></div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-5 col-xs-12">
+                  <div class="nav-right equidistant">
+                      <div class="select-nav equidistant">
+                          <img src="../../../assets/imgHomePage/language.jpg" alt="">
+                          <p class="text-nav">FRENCH</p>
+                          <i class="fas fa-chevron-down"></i>
+                      </div>
+                      <div class="select-nav equidistant denominations">
+                          <p class="text-nav">$</p>
+                          <p class="text-nav">USD</p>
+                          <i class="fas fa-chevron-down"></i>
+                      </div>
+                      <div class="select-nav box-icon-account box-icon equidistant">
+                          <i class="far fa-user"></i>
+                          <p class="text-nav">My Acount</p>
+                          <i class="fas fa-chevron-down"></i>
+                          <div class="box-account">
+                              <ul class="list-item-account">
+                                  <li class="item-acount">
+                                      <i class="fab fa-envira"></i>
+                                      <p routerLink="myacount">MY ACOUNT</p>
+                                  </li>
+                                  <li class="item-acount">
+                                      <i class="fab fa-envira"></i>
+                                      <p routerLink="wishlist" >WISHLIST</p>
+                                  </li>
+                                  <li class="item-acount">
+                                      <i class="fab fa-envira"></i>
+                                      <p routerLink="checkout">CHECK OUT</p>
+                                  </li>
+                                  <li class="item-acount">
+                                      <i class="fab fa-envira"></i>
+                                      <p routerLink="blog">BLOG</p>
+                                  </li>
+                                  <li class="item-acount">
+                                      <i class="fab fa-envira"></i>
+                                      <p routerLink="login" >LOGIN</p>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="tools-bar pt-5 pb-3">
+      <div class="container">
+          <div class="row justify-content-between">
+              <div class="col-xl-2 col-lg-2 col-md-3 lign-items-center">
+                  <div class="tool-favorite tool-header">
+                      <i class="far fa-heart"></i>
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-3">
+                  <div class="logo-main equidistant">
+                      <img src="../../../assets/imgHomePage/logo.png" alt="">
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-3 cart-search d-flex align-items-center">
+                  <div class="search-cart equidistant">
+                      <div class="search">
+                        <div class="tool-search tool-header" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                          <i class="fas fa-search"></i>
+                        </div>
+                      </div>
+                      <div class="cart">
+                          <div class="tool-cart tool-header">
+                              <i class="fas fa-shopping-bag"></i>
+                              <span class="quatityPrd">{{cart?.length}}</span>
+                          </div>
+                          <div class="view_cart py-3 px-3">
+                              <p class="qlt-cart"><span class="number">{{cart?.length}}</span> items in your cart</p>
+                              <ul class="list-item-prd">
+                                <li *ngFor="let prd of cart" class="item">
+                                  <div class="img-prd" (click)="navigateToDetail(prd.namePrd)">
+                                    <img src="../../../assets/imgHomePage/{{prd.img[0]}}" alt="">
+                                  </div>
+                                  <div class="info-prd">
+                                      <div class="d-flex justify-content-between">
+                                          <p class="name-prd" (click)="navigateToDetail(prd.namePrd)" ><a>{{prd.namePrd}}</a></p>
+                                          <i class="fas fa-times" (click)="deletePrd(prd.id)"></i>
+                                      </div>
+                                      <p class="price-qlt_prd"><span class="qlt_prd">{{prd.quanlity}}</span>x<span class="price_prd">${{prd.price}}</span></p>
+                                  </div>
+                                </li>
+                              </ul>
+                              <ng-container *ngIf="cart?.length !== 0">
+                                <h4 class="total-cart">Total: $ <span class="total-bill">{{totalPricePrdBill}}</span></h4>
+                                <div class="combo-btn-cart d-flex justify-content-between">
+                                    <button class="btn-view_cart" routerLink="shoppingcart">VIEW CART</button>
+                                    <button class="btn-check_our" routerLink="checkout">CHECK OUT</button>
+                                </div>
+                              </ng-container>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="tools-bar-responsive py-3">
+      <div class="container">
+          <div class="row justify-content-between">
+              <div id="tool-left" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4 pe-0 d-flex align-items-end">
+                  <div class="tool-favorite tool-header">
+                      <i class="far fa-heart"></i>
+                  </div>
+                  <div class="tool-search tool-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <i class="fas fa-search"></i>
+                  </div>
+              </div>
+              <div id="logo-main" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4 px-0">
+                  <div class="logo-main equidistant">
+                      <img src="../../../assets/imgHomePage/logo.png" alt="">
+                  </div>
+              </div>
+              <div id="tool-right" class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4 ps-0 cart-search d-flex align-items-end">
+                  <div class="search-cart equidistant">
+                      <div class="bar-menu tool-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        <i class="fas fa-bars"></i>
+                      </div>
+                      <div class="cart">
+                        <div class="tool-cart tool-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                          <i class="fas fa-shopping-bag"></i>
+                          <span class="quatityPrd">{{cart?.length}}</span>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+   <!-- phan popUp Search  -->
+  <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header d-flex justify-content-end">
+      <div type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></div>
+    </div>
+    <div class="offcanvas-body">
+        <!-- <form action=""> -->
+            <div class="d-flex justify-content-center">
+                <input
+                  (ngModelChange)="changeValue()"
+                  [(ngModel)]="popupSearh"
+                  class="input-search"
+                  type="text"
+                  placeholder="Search here..."
+                >
+                <button class="btn-search"(click)="sendValuePopupSearh()" >Search</button>
+            </div>
+        <!-- </form> -->
+    </div>
+    <ul>
+      <li *ngFor="let prd of listItemSearch">
+        {{prd.namePrd}}
+      </li>
+    </ul>
+  </div>
+  <!-- end -->
+   <!-- phan respon view cart -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header d-flex justify-content-end pe-2 py-2">
+      <div type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></div>
+    </div>
+    <div class="offcanvas-body">
+      <div class="view-cart">
+          <p class="qlt-cart"><span class="number">{{cart?.length}}</span> items in your cart</p>
+          <ul class="list-item-prd">
+              <li *ngFor="let prd of cart" class="item">
+                  <div class="img-prd" (click)="navigateToDetail(prd.namePrd)">
+                    <img src="../../../assets/imgHomePage/{{prd.img[0]}}" alt="">
+                  </div>
+                  <div class="info-prd">
+                      <div class="d-flex justify-content-between">
+                          <p class="name-prd" (click)="navigateToDetail(prd.namePrd)"><a>{{prd.namePrd}}</a></p>
+                          <i class="fas fa-times" (click)="deletePrd(prd.id)"></i>
+                      </div>
+                      <p class="price-qlt_prd"><span class="qlt_prd">{{prd.quanlity}}</span>x<span class="price_prd">${{prd.price}}</span></p>
+                  </div>
+              </li>
+          </ul>
+          <ng-container *ngIf="cart?.length !== 0">
+            <h4 class="total-cart">Total: $ <span class="total-bill">{{totalPricePrdBill}}</span></h4>
+            <div class="combo-btn-cart d-flex justify-content-between">
+                <button class="btn-view_cart" routerLink="shoppingcart">VIEW CART</button>
+                <button class="btn-check_our" routerLink="checkout">CHECK OUT</button>
+            </div>
+          </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+  <!-- phan respon menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header d-flex justify-content-end">
+      <div type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></div>
+    </div>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <ng-container *ngFor="let prd of listPrd">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="{{prd.id}}">
+            <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#panelsStayOpen' + prd.id" aria-expanded="false" [attr.aria-controls]="'panelsStayOpen' + prd.id">
+              <div class="name-cate">
+                <img src="../../../assets/imgHomePage/iconnew.png" alt="">
+                <h4  (click)="navigateUrl(prd.slug)">{{prd.name}}</h4>
+              </div>
+            </div>
+          </h2>
+          <div id="panelsStayOpen{{prd.id}}" class="accordion-collapse collapse" [attr.aria-labelledby]="prd.id">
+            <div class="accordion-body">
+              <div class="accordion" id="accordionPanelsStayOpenExample">
+                <ng-container *ngFor="let prdChild of prd.child" >
+                  <div class="accordion-item child-dropMenu">
+                    <h2 class="accordion-header" id="{{prdChild.id}}">
+                      <div
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        [attr.data-bs-target]="'#panelsStayOpenChild' + prdChild.id"
+                        aria-expanded="false"
+                        [attr.aria-controls]="'panelsStayOpenChild' + prdChild.id"
+                      >
+                      <div class="name-cate">
+                        <h5>{{prdChild.name}}</h5>
+                    </div>
+                    </div>
+                    </h2>
+                    <div id="panelsStayOpenChild{{prdChild.id}}" class="accordion-collapse collapse" [attr.aria-labelledby]="prdChild.id">
+                      <div class="accordion-body">
+                        <ul class="list-Prd">
+                          <li>prd-01</li>
+                          <li>prd-02</li>
+                          <li>prd-03</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+   <!-- end -->
+  <div class="menu">
+      <div class="container">
+          <ul class="list-menu-item equidistant">
+              <li class="box-item-menu" *ngFor="let item of treeCategory">
+                <img class="img-menu-item active" src="../../../assets/imgHomePage/leaves.png" alt="">
+                <p class="item-menu" routerLink="{{item.slug}}" >{{item?.name}}</p>
+                <div *ngIf="item.name !== 'Fruit';else itemFruits" class="menu_dropdown menu-dropdown-small">
+                    <ul *ngIf="item.childs.length > 0" class="list-tag-dropdown_small">
+                      <li
+                        *ngFor="let itemChild of item.childs"
+                        routerLink="{{itemChild.slug}}"
+                      >
+                        {{itemChild?.name}}
+                      </li>
+                    </ul>
+                </div>
+                <ng-template #itemFruits>
+                    <div class="menu_dropdown_fruit menu_dropdown">
+                        <div class="row">
+                            <div class="col-xl-8 pe-0">
+                                <div class="bg-menu_dropdown">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 mb-3" *ngFor="let itemChild of item.childs">
+                                            <h3 class="title-col">{{itemChild.name}}</h3>
+                                            <ul class="list-name-prd list-tag-dropdown_small">
+                                              <ng-container *ngFor="let prd of listProduct" >
+                                                <li
+                                                  *ngIf="prd.category == itemChild.id"
+                                                  class="item-name-prd px-0"
+                                                  (click)="navigateToDetail(prd.namePrd)"
+                                                >
+                                                  {{prd.namePrd}}
+                                                </li>
+                                              </ng-container>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 ps-0">
+                                <div class="img-menu_dropdown">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+          </ul>
+      </div>
+  </div>
+</header>

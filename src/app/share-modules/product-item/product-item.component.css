@@ -1,0 +1,113 @@
+.box-title img {
+  width: 120px;
+  height: 12px;
+}
+.box-prd {
+  width: 100%;
+  height: 350px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  box-shadow: 0.5px 1px 1.5px 1px rgb(230, 226, 226);
+}
+.box-prd .img-prd {
+  width: 100%;
+  height:175px;
+  cursor: pointer;
+}
+.box-prd .img-prd img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.box-prd .info-prd {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box-prd .name-prd {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #4a4642!important;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.box-prd .name-prd:hover {
+  color: #549843!important;
+}
+.box-prd .price-prd {
+  font-size: 25px;
+  margin: 15px 0;
+}
+.box-prd .price-prd .old-price{
+  font-size: 14px;
+  color: #f65151;
+  text-decoration: line-through 0.5px;
+}
+.btn-buy-now .btn-buy {
+  border: 2px solid #8bcf79;
+  padding: 4px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 35px;
+  color:#37ab3c ;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.btn-buy-now .btn-buy:hover{
+  background-color:#37ab3c ;
+  color: #fff;
+}
+.btn-buy-now {
+  position: relative;
+}
+.icon-prd {
+  position: absolute;
+  right: 88px;
+  top: 5px;
+  z-index: 100;
+  width: 25px!important;
+}
+.old-price {
+  margin-left: 10px;
+}
+.box-list-prd  {
+  height: auto;
+  width: 100%;
+}
+.box-list-prd .des-prd {
+  font-size: 13px;
+  margin:0px!important;
+}
+.box-list-prd .img-prd{
+  width: auto;
+}
+.box-list-prd .price-prd,
+.box-list-prd p {
+  margin: 5px 0px!important;
+}
+@media (max-width:430px) {
+  .box-prd {
+      height: 285px;
+      border-radius: 0 0 10px 10px;
+  }
+  .box-prd .img-prd {
+      height: 140px;
+      border-radius: 10px 10px 0 0;
+  }
+  .box-prd .img-prd img {
+    border-radius: 10px 10px 0 0;
+  }
+  .box-prd-row .info-prd >* {
+      margin: 2px auto!important;
+      text-align: center;
+  }
+  .box-prd .name-prd {
+    font-size: 15px;
+    margin: 2px 0px;
+  }
+}
+

@@ -1,0 +1,19 @@
+<div class="box-blog">
+  <div class="img-blog">
+      <img [routerLink]="['/blog',blogItem.name]" src="../../../assets/imgHomePage/{{blogItem.img}}" alt="">
+  </div>
+  <div class="info-blog">
+      <ul class="time-blog d-flex ">
+          <li class="time d-flex align-items-center">
+              <i class="far fa-clock"></i>
+              <p>{{blogItem.time}}</p>
+          </li>
+          <li class="commemt d-flex align-items-center">
+              <i class="far fa-comment-dots"></i>
+              <p>{{blogItem.quatitlyComment}} comments</p>
+          </li>
+      </ul>
+      <h3 class="name-blog" [routerLink]="['/blog',blogItem.name]">{{blogItem.name}}</h3>
+      <button class="btn-read-blog">READ MORE</button>
+  </div>
+</div>

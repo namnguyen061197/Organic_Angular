@@ -1,0 +1,72 @@
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(37, 35, 32, 0.57);
+  padding-top: 100px;
+  box-sizing: border-box;
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index: 130;
+}
+.popup {
+  z-index: 150;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.form-popup {
+  margin: 0 auto;
+  background-color: #549642;
+  width: 650px;
+  height: 350px;
+  padding-top: 20px;
+}
+.form-popup form,
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title img {
+  width: 50px;
+}
+.title h2 {
+  font-size: 55px;
+  color: #9fdb59;
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+.des-instruct {
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  margin: 20px;
+}
+.form_control {
+  width: 60%;
+  padding:10px 0px 10px 15px ;
+  color: #8e8b88;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  background-color:#f1f1f1;
+  margin: 20px 0 ;
+}
+.check-box-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.input-check {
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+}

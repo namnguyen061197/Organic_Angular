@@ -1,0 +1,55 @@
+
+  <main class="main-wrap">
+    <div class="content-main">
+      <div class="content-header">
+        <div>
+          <h2 class="content-title card-title">Products List</h2>
+          <p>Showing {{(idxFisrt + 1)}} - {{idxLast}} of {{listPrd.length}} results</p>
+        </div>
+        <div>
+          <button type="" class="btn_light btn_card me-1">Export</button>
+          <button type="" class="btn_light btn_card me-1">Import</button>
+          <button type="" routerLink="/admin/addproduct" class="btn_creat_prd btn_card">Create New</button>
+        </div>
+      </div>
+      <div class="card">
+        <header class="card-header">
+          <div class="row d-flex align-items-center">
+            <div class="col-check col-md-1 pe-0">
+              <div class="form-check ms-2">
+                <input class="form-check-input" type="checkbox" value="">
+              </div>
+            </div>
+            <div class="col-md-3 col-12 me-auto mb-md-0 mb-3 px-0">
+              <select name="selectCate" class="form-select select-category" >
+                <option value="0">All category</option>
+                <option value="1">Vegetable</option>
+                <option value="2">Fruit</option>
+              </select>
+            </div>
+            <div class="col-md-2 col-6">
+                <input type="date" value="" class="form-control">
+            </div>
+            <div class="col-md-2 col-6">
+              <select class="form-select">
+                <option selected disabled hidden>Status</option>
+                <option value="In Stock">In Stock</option>
+                <option value="Un Stock">Un Stock</option>
+              </select>
+            </div>
+          </div>
+        </header>
+        <div class="card-body">
+          <aside class="itemlist" *ngFor="let product of listPrd.slice(idxFisrt,idxLast)">
+            <app-item-product [product]="product"></app-item-product>
+          </aside>
+        </div>
+      </div>
+      <app-pagination
+        [numItem]="listPrd.length"
+        [limitNumber]="limitBlogOnPage"
+        (selectPage)="handleSelectPage($event)"
+      >
+      </app-pagination>
+    </div>
+  </main>

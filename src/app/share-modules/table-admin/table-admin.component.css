@@ -1,0 +1,71 @@
+.form-check-input {
+  background-color:  #383e50;
+  border: 1px solid #787b7e;
+  width: 0.9rem!important;
+  height: 0.9rem!important;
+}
+.form-check-input:focus {
+  border: 1px solid #383e50!important;
+  box-shadow:none!important;
+}
+.check {
+  width: 5px;
+}
+tr {
+  border-color:transparent!important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+tbody tr:hover,
+tbody tr:hover td {
+  background-color:#273149!important;
+  color:#fff!important;
+}
+thead {
+  background-color: #32394e;
+}
+th {
+  font-size: 13px;
+  color: #fff;
+  font-weight: lighter;
+}
+td {
+  font-size: 12px;
+  color: #cccccc;
+  font-weight: lighter;
+  vertical-align: middle;
+}
+.form-check {
+  min-height: 1.3rem!important;
+}
+.dropdown-toggle::after {
+  display:none!important;
+}
+.btn {
+  padding: 0.25rem 0.70rem!important;
+  background-color: #32394e!important;
+  border: none!important;
+}
+.btn:hover {
+  background-color:#2f3446!important;
+}
+.btn:active {
+  box-shadow: 0px 0px 3px 3px rgb(138, 136, 136);
+}
+.dropdown-menu {
+  background-color:#2f3446 ;
+  border: 1px solid #282e35;
+}
+.dropdown-menu-dark .dropdown-item {
+  font-size: 12px!important;
+  padding: 0.4rem 0.7rem!important;
+}
+.fa-ellipsis-h {
+  font-weight: lighter;
+}
+.table-responsive {
+  overflow-x: none!important;
+
+
+
+}

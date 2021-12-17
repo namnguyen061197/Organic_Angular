@@ -1,0 +1,69 @@
+<app-banner [listBread]="listBread" ></app-banner>
+<main>
+  <div class="concat-main">
+      <div class="container">
+          <div class="logo-concat">
+              <img src="../../../assets/imgHomePage/logoConcat.png" alt="">
+          </div>
+          <div class="row">
+              <div *ngFor="let item of listItemConcact" class="col-xl-4 col-lg- col-md-4 col-sm-4 col-4 d-flex justify-content-center">
+                  <div class="box-concat">
+                      <div class="icon-concact">
+                          <img  src="../../../assets/imgHomePage/{{item.img}}" alt="">
+                      </div>
+                      <h3 class="info-concat">{{item.name}}</h3>
+                      <p class="des-concat">{{item.content}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="fomr-concact-main">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 pe-0">
+                  <div class="bg-form-concat">
+                      <form class="blogs-form" action="" [formGroup]="concactForm" (submit)="onSubmit(concactForm)">
+                          <h2 class="title-form-concact">GET IN TOUCH <span> WITH US</span></h2>
+                          <div class="validateForm">
+                            <ng-container *ngIf="concactForm.get('name')?.touched">
+                              <span class="messErrors" *ngIf="concactForm.get('name')?.errors?.required" > không được bỏ trống</span>
+                              <span class="messErrors" *ngIf="concactForm.get('name')?.errors?.pattern">6-32 ký tự, không có ký tự số, ký tự đặc biệt</span>
+                            </ng-container>
+                            <input type="text" placeholder="NAME" class="form_control" formControlName="name" >
+                          </div>
+                          <div class="validateForm">
+                            <ng-container *ngIf="concactForm.get('email')?.touched">
+                              <span class="messErrors" *ngIf="concactForm.get('email')?.errors?.required" >không được bỏ trống</span>
+                              <span class="messErrors" *ngIf="concactForm.get('email')?.errors?.pattern" >nhập chưa đúng định dạng</span>
+                            </ng-container>
+                            <input type="email" placeholder="EMAIL" class="form_control" formControlName="email" >
+                          </div>
+                          <div class="validateForm">
+                            <ng-container *ngIf="concactForm.get('phone')?.touched">
+                              <span class="messErrors" *ngIf="concactForm.get('phone')?.errors?.required" >không được bỏ trống</span>
+                              <span class="messErrors" *ngIf="concactForm.get('phone')?.errors?.pattern" >nhập chưa đúng định dạng (phoneNumber)</span>
+                            </ng-container>
+                            <input type="phone" placeholder="PHONE" class="form_control" formControlName="phone" >
+                          </div>
+                          <div class="validateForm">
+                            <span class="messErrors" *ngIf="concactForm.get('comment')?.errors?.required && concactForm.get('comment')?.touched " >không được bỏ trống</span>
+                            <input type="text" placeholder="COMMENT" class="form_control comment" formControlName="comment">
+                          </div>
+                          <button class="btn-submit-concat" type="submit" [disabled]="concactForm.invalid" >SUBMIT</button>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0">
+                  <div class="map">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.6574756110035!2d105.78126221391484!3d21.046386992554474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab3b4220c2bd%3A0x1c9e359e2a4f618c!2sB%C3%A1ch%20Khoa%20Aptech!5e0!3m2!1svi!2sus!4v1638158912338!5m2!1svi!2sus"
+                      style="border:0;height:100%;width:100%;"
+                      allowfullscreen="" loading="lazy"></iframe>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</main>

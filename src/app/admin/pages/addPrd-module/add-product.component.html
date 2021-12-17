@@ -1,0 +1,181 @@
+<main class="main-wrap">
+  <div class="content-main">
+    <form action="" [formGroup]="addProductForm" (ngSubmit)="onSubmit(addProductForm)" >
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="content-header">
+            <h2 *ngIf="slug; else titleCreatePrd" class="content-title"> Edit Product</h2>
+            <ng-template #titleCreatePrd>
+              <h2 class="content-title">Create New Product </h2>
+            </ng-template>
+            <div class="btn-add">
+              <button type="submit" *ngIf="slug; else btnCreatePrd" [disabled]="addProductForm.invalid" >Save</button>
+              <ng-template #btnCreatePrd>
+                <button type="submit" class="" [disabled]="addProductForm.invalid">Add</button>
+              </ng-template>
+              <button type="button" *ngIf="slug; else btnReset" (click)="navigateAddPrd()" >Create New </button>
+              <ng-template #btnReset>
+                <button type="button" (click)="resetForm()">Reset</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Basic</h4>
+            </div>
+            <div class="card-body">
+              <div class="input-prd">
+                <label for="product_name" class="form-label">Product Name
+                   <span style="color:red">* </span>
+                   <span class="messError" *ngIf="addProductForm.get('namePrd')?.touched && addProductForm.get('namePrd')?.errors?.required"> ( không được bỏ trống )</span>
+                   <span class="messError" *ngIf="addProductForm.get('namePrd')?.touched && addProductForm.get('namePrd')?.errors?.pattern"> ( không chứa số, ký tự đặc biệt )</span>
+                   <span class="messError" *ngIf="addProductForm.get('namePrd')?.touched && addProductForm.get('namePrd')?.errors?.FiledDuplicated"> (tên đã tồn tại)</span>
+                </label>
+                <input name="prdName" formControlName="namePrd" type="text" placeholder="Product Name..." class="form-control" id="product_name">
+              </div>
+              <div class="input-prd">
+                <label class="form-label">Full description
+                   <span style="color:red">*</span>
+                   <span class="messError" *ngIf="addProductForm.get('description')?.touched && addProductForm.get('description')?.errors?.required"> ( không được bỏ trống )</span>
+                </label>
+                <textarea name="mota" formControlName="description" placeholder="Type here" class="form-control" rows="4"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 px-2">
+                  <div class="input-prd input-prdId">
+                    <label class="form-label">Product ID
+                      <span style="color:red">*</span>
+                      <span class="messError" *ngIf="addProductForm.get('id')?.touched && addProductForm.get('id')?.errors?.required"> ( ... )</span>
+                      <span class="messError" *ngIf="addProductForm.get('id')?.touched && addProductForm.get('id')?.errors?.FiledDuplicated"> (XXX)</span>
+                    </label>
+                    <input [readonly]="slug?.length > 0" name="prdID" formControlName="id" placeholder="prd id" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-4 px-2">
+                  <div class="input-prd">
+                    <label class="form-label">Product Price
+                       <span style="color:red">*</span>
+                       <span class="messError" *ngIf="addProductForm.get('price')?.touched && addProductForm.get('price')?.errors?.required"> (...)</span>
+                    </label>
+                    <input name="price" formControlName="price" placeholder="$" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-4 px-2">
+                  <div class="input-prd">
+                    <label class="form-label">Tax Rate %
+                       <span style="color:red">*</span>
+                       <span class="messError" *ngIf="addProductForm.get('rate')?.touched && addProductForm.get('rate')?.errors?.required"> ( ... )</span>
+                       <span class="messError" *ngIf="addProductForm.get('rate')?.touched && addProductForm.get('rate')?.errors?.max"> < 80%</span>
+                    </label>
+                    <input name="price" formControlName="rate" placeholder="%" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-6 px-2">
+                  <div class="input-prd">
+                    <label class="form-label">Unti
+                      <span style="color:red">*</span>
+                      <span class="messError" *ngIf="addProductForm.get('unti')?.touched && addProductForm.get('unti')?.errors?.required"> ( ... )</span>
+                    </label>
+                    <input name="price" formControlName="unti" placeholder="unti" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-6 px-2">
+                  <div class="input-prd">
+                    <label class="form-label">Status
+                       <span style="color:red">*</span>
+                       <span class="messError" *ngIf="addProductForm.get('status')?.touched && addProductForm.get('status')?.errors?.required"> ( ... )</span>
+                    </label>
+                    <select class="form-select" formControlName="status" aria-label="Default select example">
+                      <option  [ngValue]="null" disabled hidden>status</option>
+                      <option  value="In Stock">In Stock</option>
+                      <option value="Un Stock">Un Stock</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4" >
+          <div class="card mb-4">
+            <div class="card-header">
+              <h4>Media</h4>
+            </div>
+            <div class="card-body choose_img d-flex align-items-end ">
+              <div class="input-upload">
+                <img *ngIf=" 0 === listImg?.length + 0; else imgList" class="show-Img" src="../../../../assets/imgHomePage/upload.svg" alt="">
+                <ng-template #imgList>
+                  <div class="imgMain">
+                    <img src="../../../../assets/imgHomePage/{{imgMainPrd}}" alt="">
+                  </div>
+                  <div class="listImgExtra">
+                    <owl-carousel-o [options]="customOptions_imgExtra">
+                      <ng-template carouselSlide *ngFor="let imgPrdExtra of listImg">
+                        <div class="listImgExtra">
+                          <img
+                            (click)="getImgPrdExtra(imgPrdExtra)"
+                            src="../../../../assets/imgHomePage/{{imgPrdExtra}}"
+                            [ngClass]="{'active_img_extra' : imgPrdExtra === imgMainPrd}"
+                          >
+                        </div>
+                      </ng-template>
+                    </owl-carousel-o>
+                  </div>
+                </ng-template>
+                <span class="messError" *ngIf="addProductForm.get('img')?.touched && addProductForm.get('img')?.errors?.required"> ( không được để trống )</span>
+                <input
+                  (change)="onFileSelected($event)"
+                  accept="image/*,"
+                  style="font-size: 12px;"
+                  formControlName="img"
+                  class="form-control inputImg"
+                  type="file"
+                  multiple
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+                <h4>Organization</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="form-label">Sub-category <span style="color:red">*</span></label>
+                  <select name="note" formControlName="subcategory" class="form-select">
+                    <option [ngValue]="null" disabled hidden>sub</option>
+                    <option value="selling_prd"> Sản phẩm bán chạy </option>
+                    <option value="seal_prd"> Sản phẩm khuyến mãi </option>
+                    <option value="new_prd"> Sản phẩm mới </option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <label class="form-label">Category
+                    <span style="color:red">*</span>
+                    <span class="messError" *ngIf="addProductForm.get('category')?.touched && addProductForm.get('category')?.errors?.required"> ( ... )</span>
+                  </label>
+
+                  <!-- <select class="form-select" formControlName="status" aria-label="Default select example">
+                    <option  [ngValue]="null" disabled hidden>status</option>
+                    <option  value="In Stock">In Stock</option>
+                    <option value="Un Stock">Un Stock</option>
+                  </select> -->
+
+                  <select  class="form-select" formControlName="category" aria-label="Default select example">
+                    <option [ngValue]="null" disabled hidden>category</option>
+                    <option value="3"> Fruit </option>
+                    <option value="4"> Vegetable</option>
+                    <option value="5"> Meet</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> <!-- card end// -->
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
